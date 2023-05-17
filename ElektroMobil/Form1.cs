@@ -65,28 +65,23 @@ namespace ElektroMobil
 
         private void displayData_event(object sender, EventArgs e)
         {
-            textBox1.Text += data+ "\n";
+            DateTime dt = DateTime.Now;
+            int ms = dt.Millisecond;
+
+            textBox1.Text += DateTime.Now+";"+data+ "\n";
             textBox2.ResetText();
             textBox4.ResetText();
             textBox5.ResetText();
             textBox6.ResetText();
             textBox7.ResetText();
-            string[] tt = new string[data.Split(';').Length];// bu kısım sıkıntılı çalışabilir 
-            tt = data.Split(';'); // datayı noktalı virgüle göre bölme
-            for(int i = 0; i < tt.Length-5; i++) 
-            {
-                if (tt.Length >= 5)
-                {
-                    textBox2.Text = tt[i] + "\n";
-                    textBox4.Text = tt[i + 1] + "\n";
-                    textBox5.Text = tt[i + 2] + "\n";
-                    textBox6.Text = tt[i + 3] + "\n";
-                    textBox7.Text = tt[i + 4] + "\n";
-                }
-
-            }
-
-            //uzun süre veri alınamadığında her 5 te bir tekrar edicek şekilde verileri ekrna yazdırma 
+            string[] tt = new string[100];
+            tt = data.Split(';');
+            textBox2.Text = DateTime.Now+";"+tt[0] +"\n";
+            textBox4.Text = tt[1] + "\n";
+            textBox5.Text = tt[2] + "\n";
+            textBox6.Text = tt[3] + "\n";
+            textBox7.Text = tt[4] + "\n";
+            
 
 
 
@@ -150,7 +145,7 @@ namespace ElektroMobil
                 StreamWriter file = new StreamWriter("Volta Data " + dizi[0]+" "+ dizi[1]+"."+ dizi[2]+ "." + dizi[3]+".txt", true);
                 file.WriteLine(textBox1.Text);
                 file.Close();
-                MessageBox.Show("Dosya başarıyla kaydedildi", "Mesaj");                                     //Dosya yı tarihe göre kaydetme 
+                MessageBox.Show("Dosya başarıyla kaydedildi", "Mesaj");                                     //Dosya kaydedildiğinde kullanıcıya mesaj gönder
             }
             catch (Exception ex2)
             {
@@ -162,7 +157,6 @@ namespace ElektroMobil
         {
             serialPort1.BaudRate = int.Parse(comboBox2.Text);
         }
-
 
     }
 }
