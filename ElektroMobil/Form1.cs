@@ -53,7 +53,7 @@ namespace ElektroMobil
             textBox5.ResetText();
             textBox6.ResetText();
             textBox7.ResetText();
-            string[] tt = new string[4];
+            string[] tt = new string[100];
             tt = data.Split(';');
             textBox2.Text = Convert.ToString(DateTime.Now)+":"+ ms.ToString() +"\n";
             textBox4.Text = tt[0] + "\n";

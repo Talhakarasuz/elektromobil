@@ -19,7 +19,7 @@ namespace ElektroMobil
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressBar1.Increment(3);
+            progressBar1.Increment(4);
             if (progressBar1.Value == 100)
             {
 
@@ -36,5 +36,6 @@ namespace ElektroMobil
         {
 
         }
+
     }
 }
