@@ -16,7 +16,7 @@ namespace ElektroMobil
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Voltacar());
+            Application.Run(new Splash());
         }
     }
 }
