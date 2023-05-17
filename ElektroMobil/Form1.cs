@@ -21,9 +21,11 @@ namespace ElektroMobil
         public Voltacar()
         {
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
+
         }
 
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
             string[] ports = SerialPort.GetPortNames();  //Seri portları diziye ekleme
@@ -31,41 +33,65 @@ namespace ElektroMobil
                 comboBox1.Items.Add(port);               //Seri portları comboBox1'e ekleme
            
             serialPort1.DataReceived += new SerialDataReceivedEventHandler(SerialPort1_DataReceived);
+            textBox1.Text = "Zaman_ms;Hiz_kmh;T_bat_C;V_bat_C;Kalan_enerji_Wh" + "\n";
             comboBox2.Items.Add(4800);
             comboBox2.Items.Add(9600);
             comboBox2.Items.Add(19200);
+            comboBox2.Items.Add(14400);
+            comboBox2.Items.Add(38400);
+            comboBox2.Items.Add(57600);
+            comboBox2.Items.Add(115200);
             label3.Text = "Bağlantı Kapalı";
+            label1.Parent=pictureBox1;
+            label2.Parent=pictureBox1;
+            label1.BackColor= Color.Transparent;
+            label2.BackColor= Color.Transparent;
+
         }
         private void SerialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            data = serialPort1.ReadLine();                      //Veriyi al
-            this.Invoke(new EventHandler(displayData_event));
+            try
+            {
+                data = serialPort1.ReadLine();
+                this.Invoke(new EventHandler(displayData_event));
+            }
+            catch
+            {
+
+            }
+                 //Veriyi al
+
         }
 
         private void displayData_event(object sender, EventArgs e)
         {
-            DateTime dt = DateTime.Now;
-            int ms = dt.Millisecond;
-            textBox1.Text += Convert.ToString(DateTime.Now)+":";
-            textBox1.Text += ms.ToString()+";"+data+ "\n";
+            textBox1.Text += data+ "\n";
             textBox2.ResetText();
             textBox4.ResetText();
             textBox5.ResetText();
             textBox6.ResetText();
             textBox7.ResetText();
-            string[] tt = new string[100];
-            tt = data.Split(';');
-            textBox2.Text = Convert.ToString(DateTime.Now)+":"+ ms.ToString() +"\n";
-            textBox4.Text = tt[0] + "\n";
-            textBox5.Text = tt[1] + "\n";
-            textBox6.Text = tt[2] + "\n";
-            textBox7.Text = tt[3] + "\n";
-            
+            string[] tt = new string[data.Split(';').Length];// bu kısım sıkıntılı çalışabilir 
+            tt = data.Split(';'); // datayı noktalı virgüle göre bölme
+            for(int i = 0; i < tt.Length-5; i++) 
+            {
+                if (tt.Length >= 5)
+                {
+                    textBox2.Text = tt[i] + "\n";
+                    textBox4.Text = tt[i + 1] + "\n";
+                    textBox5.Text = tt[i + 2] + "\n";
+                    textBox6.Text = tt[i + 3] + "\n";
+                    textBox7.Text = tt[i + 4] + "\n";
+                }
+
+            }
+
+            //uzun süre veri alınamadığında her 5 te bir tekrar edicek şekilde verileri ekrna yazdırma 
 
 
 
         }
-
+        
 
         private void baslat_Click(object sender, EventArgs e)
         {
@@ -74,23 +100,26 @@ namespace ElektroMobil
                 serialPort1.PortName = comboBox1.Text;  
                 
                 serialPort1.Open();                     //Seri portu aç
-                label3.Text = "Bağlantı Kuruldu";
-                durdur.Enabled = true;                  //Durdurma butonunu aktif hale getir
-                baslat.Enabled = false;                 //Başlatma butonunu pasif hale getir
+
             }
 
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Hata");    //Hata mesajı göster
             }
+            label3.Text = "Bağlantı Kuruldu";
+            durdur.Enabled = true;                  //Durdurma butonunu aktif hale getir
+            baslat.Enabled = false;                 //Başlatma butonunu pasif hale getir
         }
 
         private void durdur_Click(object sender, EventArgs e)
         {
-            serialPort1.Close();        //Seri Portu kapa
-            label3.Text = "Bağlantı Kapalı";
-            durdur.Enabled = false;     //Durdurma butonunu pasif hale getir
-            baslat.Enabled = true;      //Başlatma butonunu aktif hale getir
+
+                serialPort1.Close();        //Seri Portu kapa
+                label3.Text = "Bağlantı Kapalı";
+                durdur.Enabled = false;     //Durdurma butonunu pasif hale getir
+                baslat.Enabled = true;      //Başlatma butonunu aktif hale getir
+
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -121,7 +150,7 @@ namespace ElektroMobil
                 StreamWriter file = new StreamWriter("Volta Data " + dizi[0]+" "+ dizi[1]+"."+ dizi[2]+ "." + dizi[3]+".txt", true);
                 file.WriteLine(textBox1.Text);
                 file.Close();
-                MessageBox.Show("Dosya başarıyla kaydedildi", "Mesaj");                                     //Dosya kaydedildiğinde kullanıcıya mesaj gönder
+                MessageBox.Show("Dosya başarıyla kaydedildi", "Mesaj");                                     //Dosya yı tarihe göre kaydetme 
             }
             catch (Exception ex2)
             {

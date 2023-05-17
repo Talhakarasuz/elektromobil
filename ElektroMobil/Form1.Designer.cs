@@ -88,7 +88,7 @@
             this.durdur.ForeColor = System.Drawing.Color.White;
             this.durdur.Image = ((System.Drawing.Image)(resources.GetObject("durdur.Image")));
             this.durdur.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.durdur.Location = new System.Drawing.Point(126, 407);
+            this.durdur.Location = new System.Drawing.Point(126, 408);
             this.durdur.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.durdur.Name = "durdur";
             this.durdur.Size = new System.Drawing.Size(120, 61);
@@ -125,14 +125,14 @@
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.Location = new System.Drawing.Point(0, 592);
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox1.Location = new System.Drawing.Point(0, 564);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(785, 94);
+            this.textBox1.Size = new System.Drawing.Size(785, 106);
             this.textBox1.TabIndex = 3;
             // 
             // comboBox1
@@ -190,7 +190,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(1, 3);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(784, 402);
@@ -202,7 +202,7 @@
             // 
             this.kaydet.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.kaydet.Image = ((System.Drawing.Image)(resources.GetObject("kaydet.Image")));
-            this.kaydet.Location = new System.Drawing.Point(421, 413);
+            this.kaydet.Location = new System.Drawing.Point(430, 413);
             this.kaydet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.kaydet.Name = "kaydet";
             this.kaydet.Size = new System.Drawing.Size(45, 45);
@@ -228,7 +228,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Georgia", 12F);
-            this.label3.Location = new System.Drawing.Point(516, 428);
+            this.label3.Location = new System.Drawing.Point(525, 428);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 18);
             this.label3.TabIndex = 13;
@@ -245,7 +245,7 @@
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(160, 114);
+            this.textBox2.Size = new System.Drawing.Size(160, 80);
             this.textBox2.TabIndex = 14;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -260,7 +260,7 @@
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(160, 114);
+            this.textBox4.Size = new System.Drawing.Size(160, 80);
             this.textBox4.TabIndex = 16;
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -275,7 +275,7 @@
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(160, 114);
+            this.textBox5.Size = new System.Drawing.Size(160, 80);
             this.textBox5.TabIndex = 17;
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -290,7 +290,7 @@
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(160, 114);
+            this.textBox6.Size = new System.Drawing.Size(160, 80);
             this.textBox6.TabIndex = 18;
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -305,7 +305,7 @@
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(160, 114);
+            this.textBox7.Size = new System.Drawing.Size(160, 80);
             this.textBox7.TabIndex = 19;
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -320,8 +320,8 @@
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(784, 19);
             this.textBox8.TabIndex = 20;
-            this.textBox8.Text = "                Tarih                              Hız(Kmh)                      " +
-    " Sıcaklık(T)                    Gerilim(V)                   Kalan Enerji(Wh)";
+            this.textBox8.Text = "             Zaman(ms\r\n)                        Hız(Kmh)                       Sı" +
+    "caklık(T)                    Gerilim(V)                   Kalan Enerji(Wh)";
             // 
             // Voltacar
             // 
