@@ -1,2 +1,2 @@
-# elektromobil
-Electro Mobil App for VoltaCar
+# Elektromobil
+Electro Mobil App for Teknofest
